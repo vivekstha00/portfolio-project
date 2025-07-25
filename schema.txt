@@ -1,0 +1,66 @@
+bio:  model
+    1. birthday
+    2. website
+    3. age
+    4. phone
+    5. city
+    6. email
+    7. degree
+    8. freelance
+    9. name
+    10. titles
+    12. address
+    13. google map link
+
+socials:
+    name : facebook.com
+    icon: facebook.png
+    url:   fb.com/sudip 
+
+
+statistics:
+    1. name
+    2. number
+    3. icon
+
+
+skills:
+    name 
+    percentage
+
+
+resume:
+    title
+    category -> education, work experience
+    start year , end year
+    description
+    organization
+
+
+projects:
+    category
+    title
+    image -> multiple
+    link
+    client
+    project start date
+    project end date
+    summary
+
+
+services:
+    icon
+    title
+    description
+
+testimonials:
+    name
+    position
+    image
+    description
+
+enquiry form:
+    name
+    email
+    subject
+    message
