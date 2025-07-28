@@ -1,0 +1,31 @@
+{% load static %}
+
+<!-- Resume Section -->
+<section id="resume" class="resume section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row">
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            {% for resume in resume%}
+            <h3 class="resume-title">{{resume.title}}</h3>
+            <div class="resume-item">
+            <h4>{{resume.category}}</h4>
+            <h5>{{resume.start_year}}- {{resume.end_year}}</h5>
+            <p><em>{{resume.organization}}</em></p>
+            <p>{{resume.description}}</p>
+            </div><!-- Edn Resume Item -->
+            {% endfor%}
+        </div>
+        </div>
+
+    </div>
+
+</section><!-- /Resume Section -->

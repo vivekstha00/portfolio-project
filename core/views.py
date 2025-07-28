@@ -8,9 +8,6 @@ def render_home(request):
     stat = Statistics.objects.all()
     skills = Skills.objects.all()
     resume = Resume.objects.all()
-    print("===========================")
-    print(bio)
-    print("===========================")
 
     name = bio.name
     title = bio.titles

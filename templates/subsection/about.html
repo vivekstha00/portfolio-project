@@ -1,0 +1,52 @@
+{% load static %}
+<!-- About Section -->
+<section id="about" class="about section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+    <h2>About</h2>
+    <p>I’m a passionate UI/UX Designer & Web Developer with a strong foundation in front-end technologies and backend development using Django and Python. I specialize in creating visually appealing and user-centric digital experiences. Based in Pokhara, Nepal, I focus on delivering responsive, accessible, and scalable web applications. Currently open for freelance opportunities.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4 justify-content-center">
+        <div class="col-lg-4">
+        <img src="{% static 'assets/img/profilepic.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 content">
+        <h2>UI/UX Designer &amp; Web Developer.</h2>
+        <p class="fst-italic py-3">
+            I'm a creative and detail-oriented designer and developer, skilled in crafting user-friendly interfaces and full-stack web solutions. I blend aesthetics with functionality to deliver engaging digital experiences using tools like HTML, CSS, JavaScript, Python, and Django.
+        </p>
+        <div class="row">
+            <div class="col-lg-6">
+            <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{bio.website}}</span></li>
+                {% if bio.phone_number %}
+                <li>
+                <i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{bio.phone_number}}</span>
+                </li>
+                {% endif%}
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{bio.address}}</span></li>
+            </ul>
+            </div>
+            <div class="col-lg-6">
+            <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{bio.age}}</span></li>
+                <li>
+                <i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{bio.degree}}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{bio.email}}</span></li>
+                <li>
+                <i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{bio.freelance}}</span>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    </div>
+
+</section><!-- /About Section -->

@@ -1,0 +1,15 @@
+{% load static %}
+{% include "includes/header.html" %}
+
+<body class="index-page">
+{% include "includes/sidebar.html"%}
+  <main class="main">
+    {% block content%}
+
+
+    {% endblock content%}
+  </main>
+
+  {% include "includes/footer.html"%}
+
+</html>
