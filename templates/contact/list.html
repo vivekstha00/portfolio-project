@@ -1,0 +1,31 @@
+{% extends "includes/base.html" %}
+
+{%block content %}
+<table class="table" style="margin">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for contact in contact_lists %}
+      <tr>
+        <th scope="row">{{forloop.counter }}</th>
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.subject}}</td>
+        <td>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-danger"> <a href="{% url 'contact_delete' contact.id %}">Delete</a></button>
+        </td>
+      </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+
+{%endblock content %}
