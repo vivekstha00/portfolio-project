@@ -7,7 +7,7 @@ class UserEnquiryForm(forms.Form):
     subject = forms.CharField(max_length=150)
     # message = forms.CharField(widget=forms.Textarea(attrs='rows':8, 'cols':40))
 
-class UserEnquiryModelForm(forms.Form):
+class UserEnquiryModelForm(forms.ModelForm):
     class Meta:
         model = EnquiryForm 
         fields = ['name','email','subject','message']

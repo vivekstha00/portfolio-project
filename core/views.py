@@ -2,25 +2,31 @@ from django.shortcuts import render, redirect
 from .models import Bio, Statistics, Skills
 from projects.models import Resume
 from .forms import *
+from django.contrib import messages
 
 
 
 def render_home(request):
+    if request.method == 'POST':
+        form = UserEnquiryModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, "Thank you for submitting")
+            return redirect('home')
+
     bio = Bio.objects.first()
     stat = Statistics.objects.all()
     skills = Skills.objects.all()
     resume = Resume.objects.all()
-
-    name = bio.name
-    title = bio.titles
-    email = bio.email
-
+    enquiry_form = UserEnquiryModelForm()
     template = 'index.html'
     context ={
         'bio': bio, 
         'statistics' : stat,
         'skills': skills,
         'resume': resume,
+        'enquiry_form': enquiry_form,
     }
 
     return render(request, template, context)
@@ -35,11 +41,16 @@ def render_bio(request):
 
 
 def conatact_lists(request):
-    conatact_lists = EnquiryForm.objects.all()
-    context = {
-        'contact_lists': conatact_lists
-    }
-    return render (request, 'contact/list.html', context)
+    if request.user.is_superuser:
+
+        conatact_lists = EnquiryForm.objects.all()
+        context = {
+            'contact_lists': conatact_lists
+        }
+        return render (request, 'contact/list.html', context)
+    else:
+        messages.error(request, "You are not authorized to vist this page")
+        return redirect('home')
 
 def contact_delete(request, id):
     if request.method == "POST":
