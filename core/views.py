@@ -59,6 +59,22 @@ def contact_delete(request, id):
         return redirect('contact_list')
     return render(request, 'contact/delete.html')
 
+def contact_edit(request, id):
+    enquiry = EnquiryForm.objects.get(id=id)
+    if request.method == "POST":
+        form = UserEnquiryModelForm(request.POST, instance=enquiry)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Enquiry updated successfully")
+            return redirect('contact_list') 
+    else:
+        form = UserEnquiryModelForm(instance=enquiry)
+    context = {
+        'form': form,
+        'enquiry': enquiry
+    }
+    return render(request, 'contact/edit.html', context)
+
 
 # def render_contact(request):
 #     if request.method == "POST":

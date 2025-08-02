@@ -19,8 +19,8 @@
         <td>{{contact.email}}</td>
         <td>{{contact.subject}}</td>
         <td>
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-danger"> <a href="{% url 'contact_delete' contact.id %}">Delete</a></button>
+            <a href="{% url 'contact_edit' contact.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'contact_delete' contact.id %}" class="btn btn-danger">Delete</a>
         </td>
       </tr>
         {% endfor %}
