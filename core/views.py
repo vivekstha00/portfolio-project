@@ -75,34 +75,14 @@ def contact_edit(request, id):
     }
     return render(request, 'contact/edit.html', context)
 
+def render_add(request):
+    if request.method == 'POST':
+        form = UserEnquiryModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Contact added successfully")
+            return redirect('contact_list')
+    else:
+        form = UserEnquiryModelForm()
+    return render(request, 'contact/add.html', {'form': form})
 
-# def render_contact(request):
-#     if request.method == "POST":
-#         input_name = request.POST['name']
-#         input_email = request.POST['email']
-#         input_subject = request.POST['subject']
-#         input_message = request.POST['message']
-#         EnquiryForm.objects.create(
-#             name = input_name,
-#             email = input_email,
-#             subject = input_subject,
-#             message = input_message
-#         )
-#     template = 'contact.html'
-#     return render(request, template)
-
-# def render_contact2(request):
-#     if request.method =="POST":
-#         form = UserEnquiryForm(request.POST)
-#         if form.is_valid():
-#             name= form.cleaned_data['name']
-#             email= form.cleaned_data['email']
-#             subject= form.cleaned_data['subject']
-#             message= form.cleaned_data['message']
-
-#     context = {
-#         'enquiry_forms': UserEnquiryForm()
-#     }
-
-#     template = 'contact2.html'
-#     return render(request, template)
